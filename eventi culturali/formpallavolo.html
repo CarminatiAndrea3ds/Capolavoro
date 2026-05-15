@@ -1,0 +1,213 @@
+
+<html lang="it">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Iscrizione Pallavolo Stagione 25/26</title>
+        <link rel="stylesheet" href="../generalstyle.css">
+        <style>
+           
+            #categoria-container{display:none;margin-top:8px}
+            #categoria-container.show{display:block}
+            #categoria-select:disabled{opacity:0.6}
+        </style>
+    </head>
+    <body>
+        <form action="success.php" method="GET" >
+            <h1 style="text-align:center">Iscrizione Pallavolo Stagione 25/26</h1>
+                <fieldset>
+                    <legend><b> DATI PERSONALI </b></legend>
+                    <label>
+                        <p> Nome dell' atleta:
+                        <input type="text" name="nome" maxlenght="30"/>
+                        </p>
+                    </label>
+
+                    <label>
+                        <p> Cognome dell' atleta:
+                        <input type="text" name="cognome" maxlenght="30"/>
+
+                        </p>
+                    </label>
+                        
+                    <label>
+                        <p> Data di nascita:
+                        <input type="date" name="data" maxlenght="30"/>
+                        </p>
+                    </label>    
+
+                    <label>
+                        <p> sesso </p>
+                        <select name="sesso" id="sesso-select">
+                            <option value="">-- seleziona --</option>
+                            <option value="maschio">Maschile</option>
+                            <option value="femmina">Femminile</option>
+                            <option value="altro">Altro</option>
+                        </select>
+                    </label>
+
+                     <label>
+                        <p> Comune di nascita:
+                        <input type="text" name="comune" maxlenght="30"/>
+                        </p>
+                    </label>
+
+                     <label>
+                        <p> Città di residenza:
+                        <input type="text" name="città" maxlenght="30"/>
+                        </p>
+                    </label>
+
+                    <label>
+                        <p> Indirizzo di residenza:
+                        <input type="text" name="indirizzo" maxlenght="30"/>
+                        </p>
+                    </label>
+
+                     <label>
+                        <p> CAP:
+                        <input type="text" name="cap" maxlenght="30"/>
+                        </p>
+                    </label>
+
+                     <label>
+                        <p> Numero di telefono di un genitore/ tutore legale:
+                        <input type="text" name="telefono" maxlenght="30"/>
+                        </p>
+                    </label>
+
+                     <label>Email di un genitore/ tutore legale: <input type="email" name="mail" size="30%" maxlenght="50"/></label>
+
+
+
+
+
+                    </fieldset>
+                    <br/>
+                
+ 
+
+                <fieldset>
+                    <legend> <b> CATEGORIE E PALESTRE </b></legend>
+                    <p> Di seguito riportato l' elenco delle palestre che verranno utilizzate nel corso della stagione</p>
+                    <ul>
+                        <li>Palestra dell' asilo di Negrone</li>
+                        <li>Palestra delle scuole medie</li>
+                        <li>Palestra dell'oratorio di Scanzorosciate</li>
+                        <li>PalaDespe (usufruito maggiormente dalle categorie superiori)</li>
+                    </ul>
+
+                    <p> Di seguito riportato, all' interno delle rispettive celte multiple a tendina, l' elenco delle categorie offerte dalla società U.S. Pallavolo Scanzorosciate</p>
+                   <label>
+                                                <p> Genere <br/>
+                                            <select name="genere" id="genere-select">
+                                                <option value="">-- seleziona --</option>
+                                                <option value="maschio">Maschile</option>
+                                                <option value="femmina">Femminile</option>
+                                                <option value="altro">Altro</option>
+                                            </select>
+                                        </label>
+
+                                 
+                                        <div id="categoria-container">
+                                            <label>
+                                                <p> <b>Categoria:</b><br/>
+                                                    <select name="categoria" id="categoria-select" disabled>
+                                                        <option value="">Seleziona prima il genere</option>
+                                                    </select>
+                                                </p>
+                                            </label>
+                                        </div> <br/> <br/>
+
+                                        <p>NB: gli orari di allenamento e di partite variano a seconda della categoria</p>
+
+
+
+                
+                </fieldset>
+
+
+<br/>
+<p align="middle"> 
+<input type="submit" align="middle" name="iscriviti" value="invia iscrizione"/> 
+ 
+
+</p>
+
+
+
+
+
+        </form>
+
+        <script>
+            
+            const categorie = {
+                maschio: [
+                    {value:'Amatori', text:'Amatori'},
+                    {value:'u15', text:' Under 15(M)'},
+                    {value:'u17', text:'Under 17/ 1^ divisione (M)'},
+                    {value:'u19', text:'Under 19(M)'},
+                    {value:'D', text:'Serie D (M)'},
+                    {value:'C', text:'Serie C (M)'},
+                    {value:'B', text: 'Serie B (M)'}
+                ],
+                femmina: [
+                    {value:'super', text:'Superminivolley'},
+                    {value:'mini', text:'Minivolley (F)'},
+                    {value:'3', text:'Terza Divisione (F)'},
+                    {value:'12', text:'Under 12 (2014)(F)'},
+                    {value:'eso', text:'Esordienti under 12'},
+                    {value:'miniallieve', text:'Miniallieve CSI (F)'},
+                    {value:'12', text:'Under 12(F)'},
+                    {value:'13', text:'Under 13(F)'},
+                    {value:'14', text:'Under 14'},
+                    {value:'2', text:'Seconda divisione (F)'},
+                    {value:'D', text:'Serie D (F)'},
+                    
+                ]
+            };
+
+            const genereSelect = document.getElementById('genere-select');
+            const categoriaContainer = document.getElementById('categoria-container');
+            const categoriaSelect = document.getElementById('categoria-select');
+
+            function popolaCategorie(genere){
+                
+                categoriaSelect.innerHTML = '';
+                if(!genere || (genere !== 'maschio' && genere !== 'femmina')){
+                    
+                    const opt = document.createElement('option');
+                    opt.value = '';
+                    opt.textContent = 'Seleziona prima il genere';
+                    categoriaSelect.appendChild(opt);
+                    categoriaSelect.disabled = true;
+                    categoriaContainer.classList.remove('show');
+                    return;
+                }
+
+               
+                const list = categorie[genere];
+                list.forEach(item=>{
+                    const o = document.createElement('option');
+                    o.value = item.value;
+                    o.textContent = item.text;
+                    categoriaSelect.appendChild(o);
+                });
+                categoriaSelect.disabled = false;
+                categoriaContainer.classList.add('show');
+            }
+
+           
+            genereSelect.addEventListener('change', (e)=>{
+                popolaCategorie(e.target.value);
+            });
+
+           
+            document.addEventListener('DOMContentLoaded', ()=>{
+                popolaCategorie(genereSelect.value);
+            });
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<html lang="it">
+    <head>
+        <title> Feedback/problemi </title>
+        <link rel="stylesheet" href="../generalstyle.css">
+    </head>
+    <body>
+
+        <h4>Ti invitiamo a condividere i probemi riscontrati. I tuoi commenti saranno utilizzati per migliorare la qualità del nostro sito e dei nostri servizi.
+        <br/> <br/>
+        Grazie per il tuo contributo!
+        </h4>
+
+        <form action="feedback.php" method="post">
+            <fieldset>
+                <legend>Feedback/Problemi</legend>
+                <label>Email (per la comunicazione della risoluzione dei problemi riportati): <input type="email" name="mail" size="30%" maxlenght="50"/></label>
+                <br/><br/>
+                <label>
+                    Che problema hai riscontrato?<br>
+                    <textarea name="problema" cols="30" rows="20">Il problema riscontrato è:</textarea>
+                </label>
+                <br/><br/>
+                <input type="submit" name="invia" value="invia"/>
+            </fieldset>
+
+        </form>
+    </body>
+</html>

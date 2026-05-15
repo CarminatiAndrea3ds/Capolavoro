@@ -1,0 +1,153 @@
+:root {
+    --accent: #ffffff;
+    --header-bg: rgb(185, 75, 75);
+    --card-bg: #fff6f6;
+    --card-text: #3b2b2b;
+    --card-accent: #ffdede;
+}
+
+.page-header {
+    text-align: center;
+    padding: 18px 12px;
+    max-width: 1000px;
+    background: linear-gradient(
+        180deg,
+        var(--header-bg),
+        color-mix(in srgb, var(--header-bg) 80%, black 10%)
+    );
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.page-header h1 {
+    margin: 0;
+    color: #ffffff;
+    font-size: 2.2rem;
+    position: relative;
+}
+
+.page-header h1::after {
+    content: "";
+    display: block;
+    width: 54%;
+    height: 4px;
+    margin: 12px auto 0;
+    background: linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--header-bg) 70%, white 30%),
+        var(--accent)
+    );
+    border-radius: 4px;
+    transition: width 0.36s ease;
+}
+
+.page-header h1:hover::after {
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+h2,
+h3 {
+    text-align: center;
+    font-weight: 600;
+    margin: 35px 0 20px;
+    color: rgb(176, 79, 79);
+}
+
+p {
+    max-width: 800px;
+    margin: 12px auto 25px;
+    padding: 0 14px;
+    line-height: 1.7;
+}
+
+ul {
+    background-color: #fafafa;
+    padding: 15px;
+    border-radius: 8px;
+    max-width: 800px;
+    margin: 0 auto 25px;
+}
+
+.info {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-left: 50px;
+}
+
+img {
+    display: block;
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    margin: 25px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    transition: transform 0.3s ease;
+}
+
+img:hover {
+    transform: scale(1.02);
+}
+
+iframe {
+    display: block;
+    width: 100%;
+    max-width: 900px;
+    height: 420px;
+    margin: 20px auto;
+    border-radius: 8px;
+}
+
+.hr-fancy {
+    height: 6px;
+    border: none;
+    border-radius: 4px;
+    margin: 30px auto;
+    max-width: 800px;
+    background: linear-gradient(
+        90deg,
+        rgba(203, 103, 103, 0),
+        rgba(203, 103, 103, 0.7),
+        rgba(203, 103, 103, 0)
+    );
+    box-shadow: 0 2px 8px rgba(203, 103, 103, 0.12);
+}
+
+.box-card {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 18px;
+    background: var(--card-bg);
+    color: var(--card-text);
+    border-radius: 10px;
+    border: 1px solid rgba(190, 100, 100, 0.18);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 170px;
+    }
+
+    .page-header h1 {
+        font-size: 1.6rem;
+    }
+
+    iframe {
+        height: 300px;
+    }
+
+    h2,
+    h3 {
+        margin: 25px 0 15px;
+    }
+}

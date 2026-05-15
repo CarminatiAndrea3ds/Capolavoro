@@ -1,0 +1,78 @@
+<html lang="it">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>prenotazione campo da calcio </title>
+        <link rel="stylesheet" href="../generalstyle.css">
+        
+    </head>
+    <body>
+        <form action="success.php" method="GET" >
+            <h1 style="text-align:center">Prenotazione Campo da calcio</h1>
+                <fieldset>
+                    <legend><b> Dati Prenotazione </b></legend>
+                    <label>
+                        <p> Nome:
+                        <input type="text" name="nome" maxlenght="30"/>
+                        </p>
+                    </label>
+
+                    <label>
+                        <p> Cognome:
+                        <input type="text" name="cognome" maxlenght="30"/>
+
+                        </p>
+                    </label>
+                        
+                    <label>
+                        <p> Data prenotazione:
+                        <input type="date" name="data" maxlenght="30"/>
+                        </p>
+                    </label>
+
+                    
+
+            
+                        <label>
+                            <p> Numero di persone:
+                            <input type="number" name="numero" maxlenght="30"/>
+                            </p>
+
+
+                     <label>
+                        <p> Numero di telefono:
+                        <input type="text" name="telefono" maxlenght="30"/>
+                        </p>
+                    </label>
+
+                     <label>Email per comunicazioni eccezionali: <input type="email" name="mail" size="30%" maxlenght="50"/></label>
+
+                    <label>
+                        <p> Tipo di partita:</p>
+                        <select name="partita" id="partita-select">
+                            <option value="">-- seleziona --</option>
+                            <option value="maschio">Torneo</option>
+                            <option value="femmina">Calcetto</option>
+                            <option value="altro">Partita di società sportive</option>
+                            <option value="altro"> Pomeriggio in compagnia</option>
+                        </select>
+                    </label>
+
+
+
+
+
+                    </fieldset>
+                
+ 
+
+
+<br/>
+<p align="middle"> 
+<input type="submit" align="middle" name="prenota" value="invia prenotazione"/> 
+ 
+
+</p>
+
+    </body>
+</html>
